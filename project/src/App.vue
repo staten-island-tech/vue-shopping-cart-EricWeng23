@@ -4,11 +4,21 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <h1>Products<h1>
-      <div v-for="product in products" :key="product.name">{{product.name}}
+
+    <header>{{cart.length}} Items in Cart
+      <button>View Cart</button>
+    </header>
+    <h1>Products</h1>
+
+  <div class="card">
+    <div v-for="product in products" :key="product.name">
+      <h2>{{product.name}}</h2>
         <img :src="product.image"/>
-        <button>Add to Cart</button>
-      <div>
+        <h3>${{product.price}}</h3>
+        <button v-on:click="addItem(product)">Add to Cart</button>
+    </div>
+  </div>
+      
     <router-view/>
   </div>
 </template>
@@ -18,41 +28,42 @@ export default {
   name: "App",
   data: () => {
     return {
+      cart:[],
       products: [
 {
     id: 1,
     name: "HERO Strike Structure Deck",
-    image: "https://www.yugioh-card.com/en/products/images/SDHS_sml.png",
+    image: "https://img.fruugo.com/product/1/50/102679501_max.jpg",
     price: 18,
 },
 {
     id: 2,
     name: "Synchron Extreme Structure Deck",
-    image: "https://www.yugioh-card.com/en/products/images/SD28_sml.png",
+    image: "https://m.media-amazon.com/images/I/819ZltYxhML._AC_SL1500_.jpg",
     price: 23,
 },
 {
     id: 3,
     name: "Structure Deck: Albaz Strike",
-    image: "https://www.yugioh-card.com/en/products/images/SDAZ_sml.png",
+    image: "https://ms.yugipedia.com//a/af/SDAZ-DeckEN.png",
     price: 20,
 },
 {
     id: 4,
     name: "Structure Deck: Freezing Chains",
-    image: "https://www.yugioh-card.com/en/products/images/SDFC_sml.png",
+    image: "https://images-na.ssl-images-amazon.com/images/I/71TCM6RVQ-L._AC_SL1080_.jpg",
     price: 19,
 },
 {
     id: 5,
-    name: "Structure Deck: Order of the Spellcasters",
-    image: "https://www.yugioh-card.com/en/products/images/SR08_sml.png",
+    name: "Structure Deck: Cyberse Link",
+    image: "https://i5.walmartimages.com/asr/7846fce4-134e-4160-92cf-8a7c20bbad67_1.31c09faa68d65721b56dd44fef747bf5.jpeg",
     price: 17,
 },
 {
     id: 6,
     name: "Structure Deck: Soulburner",
-    img: "https://www.yugioh-card.com/en/products/images/SDSB_sml.png",
+    img: "https://pm1.narvii.com/6803/d8daeb828ed28fa3a6f73468e30a1b11a728dbbdv2_hq.jpg",
     price: 18,
 },
 {
@@ -82,18 +93,37 @@ export default {
 ]
     }
   },
+
+  methods: {
+    addItem(product){
+      this.cart.push(product);
+    }
+  },
   components: {}
 }
 </script>
 
 
-<style>
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+img{
+width: 20%;
+height: 20%;
+}
+header{
+  height:100px;
+  background-color: sandybrown;
+  box-shadow: 2px;
+  display: flex;
+  justify-content: center;
+  font-size: 3rem;
 }
 
 #nav {
