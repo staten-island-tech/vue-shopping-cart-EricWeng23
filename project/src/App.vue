@@ -2,7 +2,7 @@
   <div id="app">
 
     <header>{{cart.length}} Items in Cart
-      <button>View Cart</button>
+      <button class="check_cart">View Cart</button>
     </header>
     <h1>Products</h1>
 
@@ -12,7 +12,7 @@
         <h2>{{product.name}}</h2>
         <img :src="product.image" :alt="product.name" class="product_img"/>
         <h3>${{product.price}}</h3>
-        <button v-on:click="addItem(product)">Add to Cart</button>
+        <button v-on:click="addItem(product)" class="add_item">Add to Cart</button>
     </div>
 
 </section>
@@ -123,7 +123,21 @@ export default {
   border-radius: 10px;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.555);
   width: 30%;
-  height: 400px;
+  height: 500px;
+}
+
+.add_item{
+  width: 40%;
+  height: 10%;
+  background-color: aquamarine;
+  font-size: 1rem;
+}
+
+.check_cart{
+  width: 6rem;
+  height: 5rem;
+  margin-left: 1rem;
+  font-size: 1rem;
 }
 
 img {
