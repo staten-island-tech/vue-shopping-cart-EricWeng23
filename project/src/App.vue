@@ -1,10 +1,13 @@
 <template>
   <div id="app">
 
-    <header>{{cart.length}} Items in Cart
-      <button class="check_cart">View Cart</button>
+<div>
+  <header>{{cart.length}} Items in Cart
+      <button v-on:click="navigateTo('cart')">View Cart</button>
     </header>
     <h1>Products</h1>
+</div>
+    
 
 <section class="products">
  
@@ -16,14 +19,20 @@
     </div>
 
 </section>
+
+<Cart v-on:removeItemfromCart="removeItemfromCart" :cart="cart" />
  
       
   </div>
 </template>
 
 <script>
+import Cart from '@/components/Cart.vue';
 export default {
   name: "App",
+  components: {
+    Cart,
+  },
   data: () => {
     return {
       cart:[],
@@ -95,9 +104,14 @@ export default {
   methods: {
     addItem(product){
       this.cart.push(product);
+    },
+    removeItem(product){
+      this.cart.splice(this.cart.IndexOf(product), 1)
+    },
+    navigateTo(page){
+      this.page = page;
     }
   },
-  components: {}
 }
 </script>
 
