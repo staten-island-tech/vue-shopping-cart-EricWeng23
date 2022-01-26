@@ -3,7 +3,7 @@
 
 <div>
   <header>{{cart.length}} Items in Cart
-      <button v-on:click="navigateTo('cart')">View Cart</button>
+      <button>View Cart</button>
     </header>
     <h1>Products</h1>
 </div>
@@ -20,7 +20,7 @@
 
 </section>
 
-<Cart v-on:removeItemfromCart="removeItemfromCart" :cart="cart" />
+<Cart v-on:click="removeItemfromCart=removeItemfromCart()" :cart="cart" />
  
       
   </div>
