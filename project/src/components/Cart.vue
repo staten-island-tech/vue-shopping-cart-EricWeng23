@@ -2,24 +2,20 @@
   <div class="cart-content">
     <h2>Your cart</h2>
 
-    <table v-if="cart.length">
-        <thead >
-          <tr>
-            <th>Item Name</th>
-            <th>Image</th>
-            <th>Price</th>
+    <table v-if="cart.length > 0" class="cart-table">
+          <tr class="cart-header">
+            <th class="cart-names">Name</th>
+            <th class="cart-images">Image</th>
+            <th class="cart-prices">Price</th>
           </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(product, index) in items" :key="product.name">
-            <td>{{index + 1}}.</td>
+          <tr v-for="product in cart" :key="product.name">
+            <td>{{product.name}}.</td>
             <td>{{item.img}}</td>
-            <td>$ {{item.price}}</td>
+            <td>$ {{product.price}}</td>
           </tr>
-        </tbody>
       </table>
 
-      <p v-else>Your cart is empty. 😞</p>
+      <p v-else>Your cart is empty</p>
   </div>
 </template>
 

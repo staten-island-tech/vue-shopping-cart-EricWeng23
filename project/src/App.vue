@@ -3,7 +3,7 @@
 
 <div>
   <header>{{cart.length}} Items in Cart
-      <button>View Cart</button>
+      <button v-on:click="hidden = !hidden" class="NavToCart">View Cart</button>
     </header>
     <h1>Products</h1>
 </div>
@@ -21,6 +21,7 @@
 </section>
 
 <Cart v-on:click="removeItemfromCart=removeItemfromCart()" :cart="cart" />
+
  
       
   </div>
@@ -138,6 +139,11 @@ export default {
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.555);
   width: 30%;
   height: 500px;
+  transition-duration: all ease 2s;
+}
+
+.product:hover {
+  transform: scale(1.05);
 }
 
 .add_item{
