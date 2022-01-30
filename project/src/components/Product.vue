@@ -1,11 +1,10 @@
 <template>
 
 <div>
-  <header>{{cart.length}} Items in Cart
-    </header>
+  <header>Cart({{cart.length}})</header>
 
     <h1>Products</h1>
-    
+  
 
 <section class="products">
     <div v-for="product in products" :key="product.name" class="product">
@@ -24,6 +23,9 @@
 export default {
   name: "Product",
   components: {},
+  props:{
+    Cart: Array,
+  },
   data: () => {
     return {
       cart:[],
