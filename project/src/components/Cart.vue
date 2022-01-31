@@ -1,7 +1,6 @@
 <template>
     <div>
-        <h1>Your Cart</h1>
-        <h2>Cart({{carts.length}})</h2>
+        <h1>Your Cart({{carts.length}})</h1>
         <button v-on:click="clear()">Clear Cart</button>
         <div v-for="cart in carts" :key="cart">
         <h2>{{cart.name}}</h2>
