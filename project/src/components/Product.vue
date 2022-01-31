@@ -1,7 +1,6 @@
 <template>
 
 <div>
-  <header>Cart({{cart.length}})</header>
 
     <h1>Products</h1>
   
@@ -23,12 +22,8 @@
 export default {
   name: "Product",
   components: {},
-  props:{
-    Cart: Array,
-  },
   data: () => {
     return {
-      cart:[],
       products: [
 {
     id: 1,
@@ -96,7 +91,7 @@ export default {
 
   methods: {
     addItem(product){
-      this.cart.push(product);
+      this.$store.commit("add", product);
     }
 },
 }

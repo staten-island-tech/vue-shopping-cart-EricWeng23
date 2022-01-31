@@ -1,21 +1,25 @@
 <template>
     <div>
         <h1>Your Cart</h1>
-        <Product v-bind:Cart="cart"/>
-        <Product v-for="product in Cart" :key="product.name"
-        :name="product.name"
-        :price="product.price"/>
+        <CartItem v-for="cart in carts" :key="cart"
+        :name="cart.name"
+        :price="cart.price"/>
     </div>
 </template>
 
 <script>
-import Product from "../components/Product.vue"
+import CartItem from "../components/CartItem.vue"
 export default {
     name: "Cart",
-    components: {Product,},
+    components: {CartItem,},
     methods: {
         removeItemfromCart(product) {
             this.$emit("removeItemfromCart", product);
+        }
+    },
+    computed: {
+        carts() {
+            return this.$store.state.cart;
         }
     }
 }
