@@ -16,20 +16,17 @@ export default {
     name: "Cart",
     components: {},
     methods: {
-        removeItemfromCart(product) {
-            this.$emit("removeItemfromCart", product);
-        },
         clear() {
       this.carts.splice(0);
+    },
+       removeItem(cart) {
+      this.$store.dispatch("remove", cart);
     }
     },
     computed: {
         carts() {
             return this.$store.state.cart;
         },
-         removeItem(cart) {
-      this.cart.splice(cart);
-    }
     }
 }
 </script>
