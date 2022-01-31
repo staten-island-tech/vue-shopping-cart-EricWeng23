@@ -2,12 +2,21 @@
   <div id="app">
     <div id="nav">
       <router-link to="/" tag="button">Products</router-link> |
-      <router-link to="/about" tag="button">View Cart</router-link>
+      <router-link to="/about" tag="button">View Cart({{carts.length}})</router-link>
     </div>
     <router-view/>
   </div>
 </template>
 
+<script>
+export default {
+   computed: {
+        carts() {
+            return this.$store.state.cart;
+        }
+    }
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

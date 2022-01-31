@@ -1,26 +1,35 @@
 <template>
     <div>
         <h1>Your Cart</h1>
-        <CartItem v-for="cart in carts" :key="cart"
-        :name="cart.name"
-        :price="cart.price"/>
+        <h2>Cart({{carts.length}})</h2>
+        <button v-on:click="clear()">Clear Cart</button>
+        <div v-for="cart in carts" :key="cart">
+        <h2>{{cart.name}}</h2>
+        <h3>${{cart.price}}</h3>
+        <button v-on:click="removeItem(cart)" class="remove_item">Remove from Cart</button>
+        </div>
     </div>
 </template>
 
 <script>
-import CartItem from "../components/CartItem.vue"
 export default {
     name: "Cart",
-    components: {CartItem,},
+    components: {},
     methods: {
         removeItemfromCart(product) {
             this.$emit("removeItemfromCart", product);
-        }
+        },
+        clear() {
+      this.carts.splice(0);
+    }
     },
     computed: {
         carts() {
             return this.$store.state.cart;
-        }
+        },
+         removeItem(cart) {
+      this.cart.splice(cart);
+    }
     }
 }
 </script>
