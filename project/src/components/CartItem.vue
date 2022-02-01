@@ -1,9 +1,9 @@
 <template>
-    <div>
+    <div class="cart_items">
         <div class="cart_item">
             <h2 class="cart_name">{{name}}</h2>
-            <h2 class="cart_price">{{price}}</h2>
-            <img src="image" alt="">
+            <h2 class="cart_price">${{price}}</h2>
+            <img :src="image" alt="">
         </div>
     </div>
 </template>
