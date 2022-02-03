@@ -2,9 +2,7 @@
 <div>
         <h1>Your Cart({{carts.length}})</h1>
         <button v-on:click="clear()">Clear Cart</button>
-
         <div v-if="this.carts.length === 0">Please Don't Be Cheap and Spent More Money</div>
-        <div v-else>Total: ${{price}}</div>
     <div class="cart_items">
         <div v-for="cart in carts" :key="cart.name" class="cart_item">
              <h2>{{cart.name}}</h2>
