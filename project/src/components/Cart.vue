@@ -25,12 +25,16 @@ export default {
     },
        removeItem(cart) {
       this.$store.commit("remove", cart);
-    }
+    },
+      
     },
     computed: {
         carts() {
             return this.$store.state.cart;
         },
+        totals() {
+          return this.$store.state.total;
+        }
     }
 }
 </script>
