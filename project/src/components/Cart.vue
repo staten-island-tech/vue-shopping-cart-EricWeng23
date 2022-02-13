@@ -3,7 +3,7 @@
         <h1>Your Cart({{carts.length}})</h1>
         <button v-on:click="clear()">Clear Cart</button>
         <h2 v-if="this.carts.length === 0">Please Don't Be Cheap and Spent More Money</h2>
-        <h2 v-if="this.carts.length > 0">Total: ${{total}}</h2>
+        <h2 v-if="this.carts.length > 0">Total: ${{totals}}</h2>
     <div class="cart_items">
         <div v-for="cart in carts" :key="cart.name" class="cart_item">
              <h2>{{cart.name}}</h2>
@@ -32,8 +32,9 @@ export default {
         carts() {
             return this.$store.state.cart;
         },
-        totals() {
-          return this.$store.state.total;
+        totals () {
+        return this.$store.state.cart.reduce(
+          (total, product) => total + product.price, 0);
         }
     }
 }
