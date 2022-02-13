@@ -1,20 +1,20 @@
 <template>
   <div class="about">
      <h1>Your Cart({{carts.length}})</h1>
-        <button v-on:click="clear()">Clear Cart</button>
+        <Button @button-click="clear()">Clear Cart</Button>
         <h2 v-if="this.carts.length === 0">Please Don't Be Cheap and Spent More Money</h2>
         <h2 v-if="this.carts.length > 0">Total: ${{totals}}</h2>
-      <div class="product-card">
-  <Product
+      <div class="cart_card">
+  <Card
 v-for="cart in carts"
 :key="cart.name"
 :name="cart.name"
 :image="cart.image"
 :price="cart.price"
-class="card"
+class="cart_items"
 >
 <Button @button-click="removeItem(cart)" class="add_item">Remove From Cart</Button>
-</Product>
+</Card>
 </div>
   </div>
   
@@ -23,11 +23,11 @@ class="card"
 
 <script>
 // @ is an alias to /src
-import Product from '../components/Product.vue'
+import Card from '../components/Card.vue'
 import Button from '../components/Button.vue'
 export default {
   components: {
-    Product,
+    Card,
     Button,
   },
   methods: {
@@ -51,12 +51,12 @@ export default {
 </script>
 
 <style scoped>
-.product-card{
+.cart_card{
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
-.card{
+.carrt_items{
   flex-direction: column;
   display:flex;
   align-items: center;

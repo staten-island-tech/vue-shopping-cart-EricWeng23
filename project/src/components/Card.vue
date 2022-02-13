@@ -9,7 +9,7 @@
 
 <script>
 export default {
-    name: "Product",
+    name: "Card",
     props: {
         name: String,
         image: String,
@@ -21,11 +21,11 @@ export default {
 <style scoped>
 .product-card{
     margin-top: 2rem;
-    width: 30%;
+    width: 28rem;
     height: 30rem;
-    border: 1px solid lightgray;
-    border-radius: 10px;
-    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.555);
+    border: 0.0625rem solid lightgray;
+    border-radius: 1rem;
+    box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.555);
     transition-duration: all ease 2s;
 }
 img {
