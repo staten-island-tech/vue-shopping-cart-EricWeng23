@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/" tag="button">Products</router-link> |
-      <router-link to="/about" tag="button">View Cart({{carts.length}})</router-link>
+      <router-link to="/">Products</router-link> |
+      <router-link to="/about">View Cart({{carts.length}})</router-link>
     </div>
     <router-view/>
   </div>
@@ -37,5 +37,8 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+router-link{
+  font-size: 8rem;
 }
 </style>
