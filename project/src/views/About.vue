@@ -11,7 +11,6 @@ v-for="cart in carts"
 :name="cart.name"
 :image="cart.image"
 :price="cart.price"
-class="cart_items"
 >
 <Button @button-click="removeItem(cart)" class="add_item">Remove From Cart</Button>
 </Card>
@@ -55,10 +54,5 @@ export default {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-}
-.carrt_items{
-  flex-direction: column;
-  display:flex;
-  align-items: center;
 }
 </style>

@@ -11,7 +11,6 @@ v-for="product in products"
 :name="product.name"
 :image="product.image"
 :price="product.price"
-class="product_items"
 >
 <Button @button-click="addItem(product)">Add to Cart</Button>
 </Card>
@@ -105,11 +104,6 @@ export default {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-}
-.product_items{
-  flex-direction: column;
-  display:flex;
-  align-items: center;
 }
 </style>
 

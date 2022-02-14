@@ -21,7 +21,7 @@ export default {
 <style scoped>
 .product-card{
     margin-top: 2rem;
-    width: 28rem;
+    width: 30rem;
     height: 30rem;
     border: 0.0625rem solid lightgray;
     border-radius: 1rem;
