@@ -12,7 +12,7 @@ v-for="product in products"
 :image="product.image"
 :price="product.price"
 >
-<Button @button-click="addItem(product)">Add to Cart</Button>
+<Button @click="addItem(product)">Add to Cart</Button>
 </Card>
 </div>
 

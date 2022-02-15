@@ -1,7 +1,7 @@
 <template>
   <div class="about">
      <h1>Your Cart({{carts.length}})</h1>
-        <Button @button-click="clear()">Clear Cart</Button>
+        <Button @click="clear()">Clear Cart</Button>
         <h2 v-if="this.carts.length === 0">Please Don't Be Cheap and Spent More Money</h2>
         <h2 v-if="this.carts.length > 0">Total: ${{totals}}</h2>
       <div class="cart_card">
@@ -12,7 +12,7 @@ v-for="cart in carts"
 :image="cart.image"
 :price="cart.price"
 >
-<Button @button-click="removeItem(cart)" class="add_item">Remove From Cart</Button>
+<Button @click="removeItem(cart)" class="add_item">Remove From Cart</Button>
 </Card>
 </div>
   </div>
