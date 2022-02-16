@@ -8,11 +8,11 @@ export default new Vuex.Store({
     cart: [],
   },
   mutations: {
-    add(state, payload) {
-      state.cart.push(payload);
+    add(state, product) {
+      state.cart.push(product);
     },
-    remove(state, payload) {
-      state.cart.splice(payload, 1);
+    remove(state, product) {
+      state.cart.splice(product, 1);
     },
   },
   actions: {
